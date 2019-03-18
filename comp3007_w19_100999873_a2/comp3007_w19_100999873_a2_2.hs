@@ -31,13 +31,13 @@ graphCompare (firstH:firstT) (secondH:secondT)
   | otherwise = False
 
 findLine :: Int -> [[Char]] -> [[Char]] -> Int
-findLine _ [] _ = -1
+findLine _ [] _ = error "Not Found Image"
 findLine pos (firsH:firstT) (secondH:secondT)
   | graphCompare (firsH:firstT) (secondH:secondT) == False = findLine (1 + pos) firstT (secondH:secondT)
   | otherwise = pos
 
 findX :: Int -> [Char] -> [Char] -> Int
-findX _ [] _ = -1
+findX _ [] _ = error "Not Found Image"
 findX pos (h:t) second
   | startCmp (h:t) second == False = findX (1 + pos) t second
   | otherwise = pos

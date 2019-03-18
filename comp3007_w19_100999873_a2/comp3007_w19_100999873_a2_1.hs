@@ -53,7 +53,7 @@ convertPixel :: (Double, Double, Double) -> [Char] -> Char
 convertPixel (r, g, b) shade
   | ((0.3 * r) + (0.59 * g) + (0.11 * b)) / 255 == 1 ||
     round ((((0.3 * r) + (0.59 * g) + (0.11 * b)) / 255) * fromIntegral (myLength shade)) == myLength shade = shade !! 0 
-  | ((0.3 * r) + (0.59 * g) + (0.11 * b)) / 255 == 0 = Prelude.last shade
+  | ((0.3 * r) + (0.59 * g) + (0.11 * b)) / 255 == 0 = shade !! ((myLength shade) - 1)
   | otherwise = shade !! ( myLength shade - 1 - round ((((0.3 * r) + (0.59 * g) + (0.11 * b)) / 255) * fromIntegral (myLength shade)))
 
 
