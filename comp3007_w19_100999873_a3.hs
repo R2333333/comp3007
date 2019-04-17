@@ -118,6 +118,7 @@ edgesFromList ((node,(nodeH:nodeT)):t)
 
 
 makeG :: [(Node,[Node])] -> [Edge] -> Graph
+makeG [(n,[])] [] = Single n
 makeG [(n1,_),(n2,_)] edge = Union (Single n1) (Single n2) edge
 makeG ((node,nodes):t) edge =
   let  nextEdge = [(e1,e2) | (e1,e2) <- edge, e1 /= node, e2 /= node]
